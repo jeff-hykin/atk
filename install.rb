@@ -4,6 +4,12 @@ require_relative './installer_api'
 # Summary
 # 
     # this is a one-time installer that sets up ATK for a specific operating system
+    # it adds the following commands
+        # atk
+        # project
+        # @ (alias to atk)
+        # 
+        # :: ()
     
 if OS.mac?
     # check settings

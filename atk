@@ -4,9 +4,7 @@ if ARGV.length == 0
     puts "This is the ATK command! I'm glad to see you're using it.\nRunning it with no arguments will just get you this message :)"
 # if one argument, then act like grep
 else
-    command     = ARGV[0]
-    
-    case command
+    case ARGV[0]
         when 'install'
             # first check the locally-stored core listing
             # then check the locally-stored main listing
@@ -16,8 +14,7 @@ else
         when 'uninstall'
             # check to see if the package is installed, and check if it has an uninstaller
         when 'new'
-            sub_command = ARGV[1]
-            case sub_command
+            case ARGV[1]
                 when 'project'
                     # create a folder with an info.yaml
                     # ask the user what structure's they would like to integrate

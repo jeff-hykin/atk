@@ -23,7 +23,7 @@ module OS
     #
         # create a method on each for
             # setting aliases (save them to info.yaml)
-            # 
+            # setting environment variables
     def OS.windows?
         (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
     end
