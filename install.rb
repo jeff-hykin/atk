@@ -9,19 +9,10 @@ require_relative './installer_api'
         # project
         # @ (alias to atk)
         # 
-        # :: ()
+        # :: (alias to project run)
     
 if OS.mac?
-    # check settings
-    data = {}
-    begin
-        # TODO: abstract this out into an API
-        data = yamlOpen(Dir.home+'/info.yaml')
-    rescue => exception
-        
-    end
-    
-    if data && data["settings"] && data["settings"]["global_commands"]
+    if @Info["settings"] && @Info["settings"]["global_commands"]
         puts "You've already got things saved in settings"
     else
         # setup the colon command

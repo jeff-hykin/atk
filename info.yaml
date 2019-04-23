@@ -1,4 +1,8 @@
----
+atk-settings:
+    global_commands:
+        "::" : true
+
+
 project:
     for_mac_os: &settings
         local_package_manager: 'npm'
@@ -31,7 +35,6 @@ project:
             <<: *commands
             show_files: dir
 
----
 atk_package:
     unique_name: 'example'
     installer: 'ruby installer.rb'
