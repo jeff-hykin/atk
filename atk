@@ -3,14 +3,38 @@
 if ARGV.length == 0
     puts "This is the ATK command! I'm glad to see you're using it.\nRunning it with no arguments will just get you this message :)"
 # if one argument, then act like grep
-elsif ARGV.length == 1
-# if two arguments, then act like sed
-elsif ARGV.length == 2
-    # get arguments 
-        find        = ARGV[0]
-        replacement = ARGV[1]
-    # get standard input 
-        # gotta clear ARGV before getting stdin 
-        ARGV.clear
-        input = $stdin.read
-end#if 
+else
+    command     = ARGV[0]
+    
+    case command
+        when 'install'
+            # first check the locally-stored core listing
+            # then check the locally-stored main listing
+            # then search github for the repo
+            
+            # once a package is found, save it locally and run it's installer
+        when 'uninstall'
+            # check to see if the package is installed, and check if it has an uninstaller
+        when 'new'
+            sub_command = ARGV[1]
+            case sub_command
+                when 'project'
+                    # create a folder with an info.yaml
+                    # ask the user what structure's they would like to integrate
+                when 'package'
+                    # ask the user what kind of package, installer or structure
+                when 'installer'
+                    # ask the user what they did to install it
+                        # just commands
+                        # programming logic
+                        # manual setup
+                    # repeat for each OS
+                when 'structure'
+                    # TODO: this is a future feature
+                    # structures will can have a
+                        # verifier (make sure the structe alread exists)
+                        # implementer (make the structure exist if it doesnt)
+            end
+    end
+    
+end

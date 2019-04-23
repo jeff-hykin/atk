@@ -1,26 +1,50 @@
 #!/usr/bin/ruby
 require_relative './installer_api'
 
-if ARGV.length == 0
-    puts "This is part of ATK! I'm glad to see you're using it.\nRunning it with no arguments will just get you this message :)"
-else
-    # get user's argument
-    argument = ARGV[0]
+
+
+# 
+# Get project settings
+#
     # check for a local info.yaml
     begin
         data = yamlOpen("info.yaml")
     rescue 
         # no file
     end
+    # get the project settings key
+    # pick the sub-value specific to this OS
+
+
+if ARGV.length == 0
+    puts "This is part of ATK! I'm glad to see you're using it.\nRunning it with no arguments will just get you this message :)"
+else
+    # get user's argument
+    command = ARGV[0]
     
     # 
-    # Run the command
+    # Check dependencies
     # 
-    if data.is_a? Hash
-        if data["project_commands"] != nil
-            if data["project_commands"][argument] != nil
-                system(data["project_commands"][argument])
+        # if they're not met, then warn the user about that
+    
+    case command
+        when 'integrate'
+            structure_name = ARGV[1]
+            # use this to integrate a structure into the project
+        when 'add'
+            package = ARGV[1]
+            # check if ther is an info.yaml
+            # if there is check if there is an local_package_manager in the info.yaml
+            # if there is 
+        when 'run'
+            argument = ARGV[1]
+            if data.is_a? Hash
+                if data["project_commands"] != nil
+                    if data["project_commands"][argument] != nil
+                        system(data["project_commands"][argument])
+                    end
+                end
             end
-        end
     end
+    
 end

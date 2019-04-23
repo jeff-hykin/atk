@@ -1,5 +1,10 @@
 require_relative './installer_api'
 
+# 
+# Summary
+# 
+    # this is a one-time installer that sets up ATK for a specific operating system
+    
 if OS.mac?
     # check settings
     data = {}
@@ -16,7 +21,7 @@ if OS.mac?
         # setup the colon command
         # TODO: create a standard way of doing this
         `touch ~/.bash_profile`
-        `echo "alias ::='project '" >> ~/.bash_profile`
+        `echo "alias ::='project run '" >> ~/.bash_profile`
         # TODO: create a standard way of doing this
         `echo "alias @='atk'" >> ~/.bash_profile`
         # record the setup in info.yaml
