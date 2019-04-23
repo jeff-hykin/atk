@@ -17,11 +17,14 @@ if OS.mac?
         # TODO: create a standard way of doing this
         `touch ~/.bash_profile`
         `echo "alias ::='project '" >> ~/.bash_profile`
+        # TODO: create a standard way of doing this
+        `echo "alias @='atk'" >> ~/.bash_profile`
         # record the setup in info.yaml
         data ||= {}
         data["settings"] ||= {}
         data["settings"]["global_commands"] ||= {}
         data["settings"]["global_commands"]["::"] = true
+        data["settings"]["global_commands"]["@"] = true
         # TODO: abstract this out into an API
         File.write(Dir.home+'/info.yaml', data.to_yaml)
     end
