@@ -1,0 +1,3 @@
+---
+project_commands:
+  test: echo 'yup this test works'

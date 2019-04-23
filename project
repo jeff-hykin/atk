@@ -1,0 +1,26 @@
+#!/usr/bin/ruby
+require_relative './installer_api'
+
+if ARGV.length == 0
+    puts "This is part of ATK! I'm glad to see you're using it.\nRunning it with no arguments will just get you this message :)"
+else
+    # get user's argument
+    argument = ARGV[0]
+    # check for a local info.yaml
+    begin
+        data = yamlOpen("info.yaml")
+    rescue 
+        # no file
+    end
+    
+    # 
+    # Run the command
+    # 
+    if data.is_a? Hash
+        if data["project_commands"] != nil
+            if data["project_commands"][argument] != nil
+                system(data["project_commands"][argument])
+            end
+        end
+    end
+end
